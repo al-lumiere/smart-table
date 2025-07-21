@@ -79,7 +79,7 @@ const applyFiltering = initFiltering(sampleTable.filter.elements, {
     searchBySeller: indexes.sellers
 });
 
-const applySearching = initSearching('search');
+const applySearching = initSearching(search);
 
 
 
