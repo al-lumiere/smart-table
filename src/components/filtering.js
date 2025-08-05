@@ -29,7 +29,7 @@ export function initFiltering(elements) {
             }
         })
 
-        return Object.keys(filter).length ? Object.assign({}, query, filter) : query; 
+        return Object.keys(filter).length ? Object.assign({}, query, filter) : query;
     }
 
     return {

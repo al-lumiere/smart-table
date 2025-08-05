@@ -29,7 +29,7 @@ export function initTable(settings, onAction) {
         onAction();
     });
     root.container.addEventListener('reset', () => {
-        setTImeout(onAction);
+        setTimeout(onAction);
     });
     root.container.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -42,9 +42,17 @@ export function initTable(settings, onAction) {
             const row = cloneTemplate(rowTemplate);
             const {container, elements} = row;
             Object.keys(item).forEach(key => {
-                if (elements[key]) {
-                    elements[key].textContent = item[key];
+               const el = elements[key];
+
+               if (el) {
+                const tag = el.tagName.toLowerCase();
+
+                if (tag === "input" || tag === "select" || tag === "textarea") {
+                    el.value = item[key];
+                } else {
+                    el.textContent = item[key];
                 }
+               }
             })
             return container;
         });
